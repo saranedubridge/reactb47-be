@@ -1,6 +1,6 @@
 // Simple web Server
-
-const http= require('http');
+const express= require('express')
+const app = express();
 
 let note =[
 {
@@ -13,19 +13,22 @@ let note =[
     content:'backend restful using nodejs',
     important: false
 
+},
+{
+    id:2,
+    content:'backend restful using nodejs',
+    important: false
+
 }
+
 
 ];
 
 
-const app = http.createServer((request,response)=>{
 
-    response.writeHead(200,{'Content-Type':'application/json'});
-    response.end(JSON.stringify(note));
+const PORT =3001;
+app.listen(PORT,()=>{
+    console.log(`server running on port ${PORT}`);
 
 });
 
-const PORT =3001;
-
-app.listen(PORT);
-console.log(`server running on port ${PORT}`);
